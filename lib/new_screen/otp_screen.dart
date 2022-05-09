@@ -13,6 +13,8 @@ class OtpScreen extends StatefulWidget {
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
+OtpFieldController otpController = OtpFieldController();
+
 class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
@@ -72,12 +74,18 @@ class _OtpScreenState extends State<OtpScreen> {
             ),
             const SizedBox(height: 10),
             OTPTextField(
+              controller: otpController,
               length: 6,
               width: MediaQuery.of(context).size.width,
               fieldWidth: 30,
               style: const TextStyle(fontSize: 17),
               textFieldAlignment: MainAxisAlignment.spaceAround,
               fieldStyle: FieldStyle.underline,
+              onChanged: (value) {
+                setState(() {
+                  //otpController.set([value]);
+                });
+              },
               onCompleted: (pin) {
                 print("Completed: " + pin);
               },

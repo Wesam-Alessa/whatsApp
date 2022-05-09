@@ -67,7 +67,7 @@ class _IndividualPageState extends State<IndividualPage> {
   }
 
   void connect() {
-    socket = IO.io("http://192.168.8.103:5000", <String, dynamic>{
+    socket = IO.io("http://192.168.8.114:5000", <String, dynamic>{
       "transports": ["websocket"],
       "autoConnect": false,
     });
@@ -122,7 +122,7 @@ class _IndividualPageState extends State<IndividualPage> {
       popTime = 0;
     });
     var request = http.MultipartRequest(
-        "POST", Uri.parse("http://192.168.8.103:5000/routes/addimage"));
+        "POST", Uri.parse("http://192.168.8.114:5000/routes/addimage"));
     request.files.add(await http.MultipartFile.fromPath("img", image.path));
     request.headers.addAll({"Content-type": "multipart/from-data"});
     http.StreamedResponse response = await request.send();

@@ -14,10 +14,14 @@ class _CallScreenState extends State<CallScreen> {
     return Scaffold(
       body: ListView(
         children: [
-          callCard(Icons.call_made, "Wesam", "July 18, 18:56", Colors.green),
-          callCard(Icons.call_missed, "Ali dev", "July 22, 10:06", Colors.red),
-          callCard(Icons.call_missed, "khaled", "July 11, 16:39", Colors.red),
-          callCard(Icons.call_made, "Wesam", "July 18, 18:56", Colors.green),
+          callCard(Icons.call_made, "Wesam", "July 18, 18:56", Colors.green,
+              "assets/images/1.jpg"),
+          callCard(Icons.call_missed, "Ali dev", "July 22, 10:06", Colors.red,
+              "assets/images/2.jpg"),
+          callCard(Icons.call_missed, "khaled", "July 11, 16:39", Colors.red,
+              "assets/images/3.jpg"),
+          callCard(Icons.call_made, "Wesam", "July 18, 18:56", Colors.green,
+              "assets/images/1.jpg"),
         ],
       ),
     );
@@ -28,11 +32,16 @@ class _CallScreenState extends State<CallScreen> {
     String name,
     String time,
     Color iconColor,
+    String img,
   ) {
     return Card(
       margin: EdgeInsets.only(bottom: Dimensions.height10 / 20),
       child: ListTile(
-        leading: CircleAvatar(radius: Dimensions.radius25),
+        leading: CircleAvatar(
+          radius: Dimensions.radius25,
+          backgroundColor: Colors.white,
+          backgroundImage: AssetImage(img),
+        ),
         title: Text(name, style: const TextStyle(fontWeight: FontWeight.w500)),
         subtitle: Row(
           children: [
